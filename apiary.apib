@@ -3,13 +3,22 @@ HOST: http://aware-unit.account.service/
 
 # Account service
 
-Account service
+Generic account service.
 
 # Group Account
 
-## Accounts Collection [/accounts]
+## Accounts Collection [/accounts{?filter,offset,limit,sort,fields,embed}]
 
-### List All Accounts [GET]
+
++ Parameters
+    + offset = `0` (optional, numeric, `0`) ... return results starting at `offset`.
+    + limit = `30` (optional, numeric, `10`) ... limit result set to `limit`.
+    + sort (optional, string, `-createdAt`) ... `sort` result set by specified fields.
+    + filter (optional, string, `title==Regular*`) ... `filter-expression` to apply on results.
+    + fields (optional, string, ``) ... what `fields` should be returned, by default all fields are returned.
+    + embed = `variations` (optional, string, ``) ... define which sub-resources should be embeded in response.
+
+### Query Accounts [GET]
 
 + Response 200 (application/json)
 
